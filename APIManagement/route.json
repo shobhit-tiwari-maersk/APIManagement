@@ -1,0 +1,59 @@
+{
+  "Routes": [
+    {
+      "DownstreamPathTemplate": "/booking-api/{url}",
+      "DownstreamScheme": "http",
+      "DownstreamHost": "localhost",
+      "DownstreamPort": 7000,
+      "UpstreamPathTemplate": "/booking-api/{url}",
+      "UpstreamHttpMethod": [ "Get" ],
+      "ReRouteIsCaseSensitive": false,
+      "downstreamHostAndPorts": [
+        {
+          "host": "localhost",
+          "port": 7000
+        }
+      ],
+      "RateLimitOptions": {
+        "ClientWhitelist": [],
+        "EnableRateLimiting": true,
+        "Period": "1m",
+        "PeriodTimespan": 60,
+        "Limit": 1
+      }
+    },
+    {
+      "DownstreamPathTemplate": "/schedule-api/{url}",
+      "DownstreamScheme": "http",
+      "DownstreamPort": 8000,
+      "DownstreamHost": "localhost",
+      "UpstreamPathTemplate": "/schedule-api/{url}",
+      "UpstreamHttpMethod": [ "Get" ],
+      "ReRouteIsCaseSensitive": false,
+      "downstreamHostAndPorts": [
+        {
+          "host": "localhost",
+          "port": 8000
+        }
+      ],
+      "RateLimitOptions": {
+        "ClientWhitelist": [],
+        "EnableRateLimiting": true,
+        "Period": "5m",
+        "PeriodTimespan": 60,
+        "Limit": 1
+      }
+    }
+  ],
+  "GlobalConfiguration": {
+    "BaseUrl": "http://localhost:5000",
+    "RequestIdKey": "OcRequestId",
+    "AdministrationPath": "/administration",
+    "ServiceDiscoveryProvider": {
+
+      "Host": "localhost",
+      "Port": "5000"
+    }
+  }
+}
+
