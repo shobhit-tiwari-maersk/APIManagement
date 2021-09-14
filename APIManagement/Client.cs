@@ -9,6 +9,7 @@ namespace APIManagement
     {
         public string Name;
         public Guid Secret; 
+        public string ServiceTier
     }
 }
 
