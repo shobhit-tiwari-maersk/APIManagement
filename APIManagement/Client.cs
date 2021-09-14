@@ -8,8 +8,8 @@ namespace APIManagement
     public class Client
     {
         public string Name;
-        public Guid Secret; 
-        public string ServiceTier
+        public Guid Secret;
+        public string ServiceTier;
     }
 }
 
