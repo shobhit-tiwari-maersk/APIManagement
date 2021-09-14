@@ -19,7 +19,7 @@
         "EnableRateLimiting": true,
         "Period": "1m",
         "PeriodTimespan": 60,
-        "Limit": 1
+        "Limit": 1000
       }
     },
     {
@@ -39,7 +39,7 @@
       "RateLimitOptions": {
         "ClientWhitelist": [],
         "EnableRateLimiting": true,
-        "Period": "5m",
+        "Period": "1m",
         "PeriodTimespan": 60,
         "Limit": 1
       }

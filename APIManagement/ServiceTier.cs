@@ -5,12 +5,9 @@ using System.Threading.Tasks;
 
 namespace APIManagement
 {
-    public class Client
+    public enum ServiceTier
     {
-        public string Name;
-        public Guid Secret;
-        public string ServiceTier; 
+        Basic,
+        Standard
     }
 }
-
-

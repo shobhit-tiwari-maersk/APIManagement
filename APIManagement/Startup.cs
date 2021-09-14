@@ -25,13 +25,14 @@ namespace APIManagement
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "APIManagement", Version = "v1" });
             });
-            services.AddTransient<IStorage, PersistenceService>();
+            services.AddSingleton<IStorage, PersistenceService>();
         }
 
 
         private async static void UseOcelotBranch(IApplicationBuilder app)
         {
             app.UseToken();
+            app.UseClientQuotaMiddleware();
             await app.UseOcelot();
             app.UseHttpsRedirection();
             app.UseRouting();
