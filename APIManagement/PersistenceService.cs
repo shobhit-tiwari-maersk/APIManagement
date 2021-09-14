@@ -7,12 +7,16 @@ namespace APIManagement
 {
     public class PersistenceService : IStorage
     {
-        private List<Client> _clients = new List<Client>();
+        private static List<Client> _clients = new List<Client>();
         public Client AddClient(Client client)
         {
             client.Secret = Guid.NewGuid();
             _clients.Add(client);
             return client;
+        }
+        public bool ValidateSecret(string secret)
+        {
+            return _clients.Any(x => x.Secret.ToString() == secret);
         }
     }
 }
