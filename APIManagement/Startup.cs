@@ -29,7 +29,7 @@ namespace APIManagement
         }
 
 
-        private async static void UseOcelotBranch(IApplicationBuilder app)
+        private async void UseOcelotBranch(IApplicationBuilder app)
         {
             app.UseToken();
             app.UseClientQuotaMiddleware();
@@ -51,6 +51,7 @@ namespace APIManagement
                 app.UseSwagger();
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "APIManagement v1"));
             }
+            app.UseMiddleware<IpAuthMiddleware>(Configuration["AdminSafeList"]);
             app.MapWhen(httpContext => !httpContext.Request.Path.StartsWithSegments("/gateway-api"), UseOcelotBranch);
             app.UseHttpsRedirection();
             app.UseRouting();
